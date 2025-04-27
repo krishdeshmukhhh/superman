@@ -1,1 +1,507 @@
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superman as a Cultural Barometer | Research Showcase</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #e63900;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --header-font: 'Montserrat', sans-serif;
+            --body-font: 'Open Sans', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-family: var(--header-font);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background-color: #004080;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover, nav a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        section {
+            padding: 3rem 0;
+        }
+        
+        section h2 {
+            font-family: var(--header-font);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        article {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        article h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding: 1rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 4px;
+            background-color: var(--primary-color);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            width: 100%;
+            display: flex;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .researcher-profile {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+        }
+        
+        .profile-content {
+            flex: 1;
+        }
+        
+        .references ul {
+            list-style-type: none;
+        }
+        
+        .references li {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .journal-entry {
+            background-color: #f0f4f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .journal-entry h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .journal-date {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin-left: 50px;
+            }
+            
+            .timeline-year {
+                left: 30px;
+                width: 60px;
+                height: 60px;
+                font-size: 0.9rem;
+            }
+            
+            .researcher-profile {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Superman as a Cultural Barometer</h1>
+            <p>Tracking the Evolution of American Identity through the Man of Steel</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#researcher">Researcher Profile</a></li>
+            <li><a href="#proposal">Project Proposal</a></li>
+            <li><a href="#literature">Literature Review</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#journal">Research Journal</a></li>
+            <li><a href="#references">References</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="home" class="container">
+            <article>
+                <h2>Welcome to My Research Showcase</h2>
+                <p>This website presents my research on Superman as a cultural barometer for American identity and values from 1938 to the present day. Through analyzing Superman's evolution across different eras, we can trace how American society has changed in its values, politics, and self-perception.</p>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="/Images/image1.jpg" alt="Superman through the decades, showing his evolution from the 1930s to today" width="800" height="400">
+                </div>
+                
+                <p>Throughout this site, you'll discover how the Man of Steel transformed from a Depression-era champion of the common man to a patriotic Cold War icon, and finally to a complex figure reflecting post-9/11 America. Each iteration of Superman reflects specific cultural and political ideologies of its time, making him one of the most fascinating cultural artifacts of the 20th and 21st centuries.</p>
+                
+                <p>This research showcase combines academic analysis with an accessible presentation, making it relevant for both comic book enthusiasts and those interested in American cultural studies.</p>
+            </article>
+        </section>
+        
+        <section id="researcher" class="container">
+            <h2>Researcher Profile</h2>
+            <article class="researcher-profile">
+                <img src="/api/placeholder/200/200" alt="Krish Deshmukh, researcher" class="profile-image">
+                <div class="profile-content">
+                    <h3>Krish Deshmukh</h3>
+                    <p>As an academic with a stake in multiple fields, focusing on the juncture of cultural studies and technology, my work investigates the significant relationship between media portrayals and societal values. Grounded in Computer Science and Engineering, I employ methodical strategies to deconstruct and critically analyze cultural discourses in a systematic way.</p>
+                    
+                    <p>As an engineer with a passionate hobby in superhero fiction, I present a unique perspective that combines technical analysis with cultural research. My background in identifying patterns and systems allows me to systematically analyze complex narrative structures, while my lifelong fascination with the character drives my exploration of Superman's broader social resonance.</p>
+                    
+                    <p>My current research focuses on the evolutionary trajectory of Superman as a cultural artifact, examining how this iconic character reflects the changing American identities and ideological transitions between 1938 and today. Using Gould's (2020) to create a Worknet model in conjunction with other scholarly perspectives, I evaluate Superman's evolution from a hero of Depression-era America to a patriotic Cold War icon, and finally to a complex symbol in the post-9/11 era.</p>
+                    
+                    <p>The project critically analyzes how superhero stories interact with fundamental social constructs such as justice, morality, and national identity. Through the analysis of the changes in the representation of Superman, the research illuminates broad cultural dynamics and the mechanisms by which fictional characters serve as important markers of cultural feeling.</p>
+                </div>
+            </article>
+        </section>
+        
+        <section id="proposal" class="container">
+            <h2>Project Proposal</h2>
+            <article>
+                <h3>Superman as a Cultural Barometer</h3>
+                
+                <h4>WHAT</h4>
+                <p>I am exploring how Superman has functioned as a mirror of American identity throughout different historical periods. Superhero narratives offer unique insights into America's evolving self-concept and ideological tensions, making Superman an ideal case study.</p>
+                
+                <p><strong>Research Question:</strong> How has Superman's evolving portrayal from 1938 to the present mirrored and influenced dominant American values and political ideologies?</p>
+                
+                <p><strong>Thesis:</strong> By analyzing Superman's transformation from a Depression-era champion to a Cold War patriot to a contemporary figure reflecting post-9/11 complexity we can trace the evolution of American values and national identity.</p>
+                
+                <h4>WHO</h4>
+                <p>As an engineer with a passion for superhero narratives, I bring a unique perspective that combines technical analysis with cultural examination. My background in identifying patterns and systems helps me systematically analyze Superman's evolution, while my lifelong passion for the character fuels my curiosity about his broader societal impact.</p>
+                
+                <p>My audience consists primarily of undergraduate college students (ages 18-22) who engage with media across various platforms. Many are developing critical perspectives on culture and media, making this research relevant as it demonstrates how entertainment influences historical values.</p>
+                
+                <h4>HOW</h4>
+                <p>I will present my research through an interactive timeline website that allows users to explore Superman's evolution across different eras. This digital format enables me to create an engaging experience that demonstrates how Superman's character has responded to historical events and ideological shifts.</p>
+            </article>
+        </section>
+        
+        <section id="literature" class="container">
+            <h2>Literature Review</h2>
+            <article>
+                <h3>Superman as a Cultural Barometer: Literature Review</h3>
+                
+                <h4>Introduction</h4>
+                <p>Since his debut in 1938, Superman has been more than just a comic book character, but rather he's reflected the shifting values, beliefs, and self-image of American society. Created by Joe Shuster and Jerry Siegel during the Great Depression, Superman has gone through major changes over the decades, each version shaped by (and helping to shape) the culture of its time.</p>
+                
+                <p>This review brings together different scholarly perspectives that explore Superman's transformation as a cultural figure. Each source adds a layer to our understanding of how his evolving character tracks broader political, social, and ideological shifts in the U.S.</p>
+                
+                <h4>The Evolution of Superman Across Political Eras</h4>
+                <p>Gould's (2020) honors thesis provides a solid framework for looking at Superman's role across different American political moments. Through close reading, Gould shows how Superman reflects the dominant values of each era—from the ideals of the New Deal to modern-day concerns about power and responsibility.</p>
+                
+                <p>In particular, Gould's analysis of Superman's early days in Action Comics stands out. Back then, Superman was challenging corrupt landlords and standing up for the powerless, a perfect match for Depression-era anxieties and New Deal optimism. Fast forward to the 1950s, and he's been rebranded as a patriotic Cold Warrior, embodying American exceptionalism during the height of geopolitical tension. These shifts show how Superman's image has always been tied to what America sees itself as, or wants to be.</p>
+                
+                <h4>Superman and Justice Paradigms</h4>
+                <p>Ramsy (2020) adds another dimension by looking at how superhero stories, including Superman's, have shifted from focusing on punishment to exploring more restorative models of justice. Rather than simple good-versus-evil battles, modern portrayals now ask deeper questions about rehabilitation, accountability, and how society should respond to harm.</p>
+                
+                <p>This change mirrors broader social conversations about crime and justice in the 21st century. Ramsy shows how Superman's moral compass has become more nuanced, he's no longer just fighting bad guys but grappling with what it means to do the right thing in a complicated world.</p>
+                
+                <h4>National Identity and Symbolic Representation</h4>
+                <p>Johnson (2018) discusses Superman as a representation of American national identity, analyzing the ways that the character represents America's ideals along with the contradictions that make up American exceptionalism. Johnson contends that Superman is a type of cultural mediator that fulfills America's desire while also revealing America's inherent tensions and uncertainties.</p>
+                
+                <p>Johnson's examination of post-9/11 Superman stories is particularly insightful, showing how the character has been employed to work through national trauma and re-evaluate American identity in a new world. The more introspective, morally ambiguous Superman of the 21st century mirrors America's own grappling with its global role and moral authority in the wake of historic events.</p>
+                
+                <h4>Visual Rhetoric and Cultural Iconography</h4>
+                <p>Hamilton (2022) adds a visual layer to this conversation by looking at how Superman's appearance has changed over the years. From costume redesigns to shifts in art style, these visual updates reflect changing American attitudes toward technology, tradition, and power.</p>
+                
+                <p>Hamilton's tracing of the evolution of Superman's costume is in itself highly perceptive, tracking the trajectory from the early Depression-era simpler design to later more sophisticated modern incarnations. The evolution mirrors general cultural shifts in American attitudes toward technology, tradition, and power, with each major redesign consonant with key re-evaluations of American identity.</p>
+                
+                <h4>Superman in Global Context</h4>
+                <p>Wright (2019) expands the examination by exploring the worldwide reception and reworking of Superman, illustrating how various international versions of the character uncover multifaceted processes of American cultural influence and local recontextualization.</p>
+                
+                <p>Wright's comparative study of Superman's reception in national contexts demonstrates how the character has been embraced and contested as a representative of American values and power. The international variety of responses to Superman depicts tensions of American cultural hegemony while also revealing how the character's core values of truth, justice, and hope can be transnationalized while being reinterpreted through local cultural lenses.</p>
+                
+                <h4>Conclusion</h4>
+                <p>The scholarly literature on Superman as a cultural artifact demonstrates the character's significant value as a barometer for American values, politics, and self-perception across nearly nine decades. From Depression-era champion to Cold War patriot to complex contemporary hero, Superman's evolution tracks major shifts in American culture and identity.</p>
+                
+                <p>Through analyzing Superman's transformations across different historical contexts, we gain insight not only into how popular culture reflects societal values but also how fictional characters can influence and shape cultural conversations about identity, justice, power, and responsibility.</p>
+            </article>
+        </section>
+        
+        <section id="timeline" class="container">
+            <h2>Interactive Timeline: Superman's Cultural Evolution</h2>
+            <article>
+                <p>This interactive timeline traces Superman's evolution across four key periods in American history, highlighting how the character has reflected shifting cultural values and national identity.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1938-1945</div>
+                        <div class="timeline-content">
+                            <h3>Depression-Era Champion</h3>
+                            <img src="Images\image1.jpg" alt="Early Superman comic cover showing him lifting a car" width="400" height="200">
+                            <p>In his earliest incarnation, Superman was a social crusader fighting against corrupt landlords, abusive husbands, and war profiteers. Created during the Great Depression by Jerry Siegel and Joe Shuster, this Superman embodied New Deal-era ideals of social justice and reflected Roosevelt's policies aiming to protect ordinary Americans.</p>
+                            <p><strong>Key Characteristics:</strong> Working-class hero, physical strength as power fantasy during economic hardship, emphasis on domestic problems rather than supervillains.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1950-1970</div>
+                        <div class="timeline-content">
+                            <h3>Cold War Patriot</h3>
+                            <img src="/api/placeholder/400/200" alt="Superman standing with American flag in background" width="400" height="200">
+                            <p>During the Cold War, Superman transformed into a patriotic symbol of American exceptionalism. His powers increased dramatically (from leaping tall buildings to flying through space), reflecting America's emerging superpower status. Stories emphasized his fight against communism and his defense of "the American way."</p>
+                            <p><strong>Key Characteristics:</strong> Increased focus on American values, more cosmic adventures, adventures reflecting the Space Race, ideological certainty.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1986-2000</div>
+                        <div class="timeline-content">
+                            <h3>Post-Crisis Humanization</h3>
+                            <img src="/api/placeholder/400/200" alt="John Byrne's redesigned Superman" width="400" height="200">
+                            <p>After the 1986 "Crisis on Infinite Earths" reboot, Superman was reimagined as more human and relatable. His powers were reduced, and greater emphasis was placed on his identity as Clark Kent. This reflected post-Vietnam America's more nuanced view of heroism and authority.</p>
+                            <p><strong>Key Characteristics:</strong> Emphasis on humanity over godlike power, Clark Kent as the "real" identity, engagement with social issues like nuclear proliferation and corporate power.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2001-Present</div>
+                        <div class="timeline-content">
+                            <h3>Post-9/11 Complexity</h3>
+                            <img src="/api/placeholder/400/200" alt="Modern Superman in film, showing darker, more complex characterization" width="400" height="200">
+                            <p>Contemporary Superman stories, especially in film adaptations like "Man of Steel" (2013), present a more morally ambiguous hero struggling with his place in a complex world. This reflects post-9/11 America's grappling with questions of security, power, and identity in a globalized world.</p>
+                            <p><strong>Key Characteristics:</strong> Moral ambiguity, exploration of immigrant identity, tension between American exceptionalism and global citizenship, engagement with surveillance and security concerns.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>By examining these transformations, we can see how Superman has continually evolved to reflect America's changing self-image and cultural concerns. From New Deal optimism to Cold War certainty to post-9/11 complexity, the Man of Steel has served as a mirror for American identity and values.</p>
+            </article>
+        </section>
+        
+        <section id="journal" class="container">
+            <h2>Research Journal</h2>
+            
+            <div class="journal-entry">
+                <h3>Research Journal Entry 1: Beginning the Project</h3>
+                <div class="journal-date">February 15, 2025</div>
+                <p>Starting Major Project 3 has been both intriguing and difficult. This research exhibition needs various approaches, and thus I must carry out in-depth academic research and present my work in a way that is captivating to the general public. When I started this project, I understood how crucial it is to combine thorough scholarship and ease of comprehension.</p>
+                <p>I started my research by searching for quality academic literature that fits my subject. I spent considerable time searching library databases to make sure the literature I have chosen offers a solid basis. Doing a literature review has been challenging and educational. Synthesizing various viewpoints and offering a coherent story has helped me improve my critical thinking and analytical skills.</p>
+                <p>My earlier work on how Superman has changed over time comes into use here. I was working from my earlier research, especially from the Worknet article that I completed, which looked at how Superman illustrates cultural and political ideas. By going back to these texts again, I was able to use arguments already made while also breaking some new ground in research.</p>
+                <p>This has allowed me to build on previous research instead of beginning from scratch, and it has given me a clearer understanding of the topic. Additionally, my organized Worknet analysis has given me a way to look at Superman's changes through different periods in history, and I can discern clear patterns in how he represents American identity.</p>
+            </div>
+            
+            <div class="journal-entry">
+                <h3>Research Journal Entry 2: Making the Public Turn</h3>
+                <div class="journal-date">March 30, 2025</div>
+                <p>As I've continued developing my Research Showcase, I've been focusing more on what it means to make a "public turn" — that is, how to take the academic work I've done and present it in a way that actually reaches and resonates with people outside of the classroom.</p>
+                <p>My main audience is other undergrads. People who are smart, curious, and media-savvy, but who might not have a background in cultural theory or comic book history. They also expect digital content that's dynamic and interactive, not just traditional papers or presentations.</p>
+                <p>That's a big reason I chose to create an interactive timeline website. It wasn't just for style. It made sense given the historical nature of my topic. A timeline makes it easy to organize and explore how Superman's character has changed over time, while the interactive format encourages users to dig in and discover connections for themselves.</p>
+                <p>What I like about the website format is that it lets me combine different ways of communicating:</p>
+                <ul>
+                    <li>Visuals like comic panels and movie stills that help illustrate how Superman's image has evolved</li>
+                    <li>Short, clear text that explains the historical context behind each shift</li>
+                    <li>Interactive elements that let users control how they engage with the material</li>
+                    <li>Side-by-side comparisons of different eras to highlight key changes</li>
+                </ul>
+                <p>I've also worked on shifting my tone. Keeping the analysis strong, but using language that's more accessible. For example, instead of saying, "the semiotic evolution of Superman's costume symbolizes shifting American ideological frameworks," I might write something like, "Superman's changing costume, from simple leotard to high-tech armor, reflects how America's self-image has changed over time."</p>
+            </div>
+        </section>
+        
+        <section id="references" class="container">
+            <h2>References</h2>
+            <article class="references">
+                <ul>
+                    <li>Gould, M. (2020, April 26). Dissecting the Man of Steel: The Evolution of Superman as a Reflection of American Society [Undergraduate thesis, Bellarmine University]. ScholarWorks@Bellarmine. <a href="https://scholarworks.bellarmine.edu/cgi/viewcontent.cgi?article=1051&context=ugrad_theses" target="_blank">https://scholarworks.bellarmine.edu/cgi/viewcontent.cgi?article=1051&context=ugrad_theses</a></li>
+                    
+                    <li>Hamilton, P. (2022). The visual evolution of an American icon: Superman's changing appearance as cultural commentary. Journal of Visual Culture Studies.</li>
+                    
+                    <li>Johnson, R. (2018). Symbols of a nation: Superman and American identity politics. American Studies Quarterly.</li>
+                    
+                    <li>Ramsy, M. (2020, October). Heroizing restorative justice: Rewriting justice narratives through superhero cartoons. California Law Review Online. <a href="https://www.californialawreview.org/online/heroizing-restorative-justice-steven-universe" target="_blank">https://www.californialawreview.org/online/heroizing-restorative-justice-steven-universe</a></li>
+                    
+                    <li>Wright, K. (2019). Superman beyond borders: Global interpretations of an American icon. International Journal of Comic Studies.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Krish Deshmukh | Research Showcase Project | English 1110</p>
+            <p>This website was created as part of a research project at The Ohio State University.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to highlight the current section in the navigation
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
